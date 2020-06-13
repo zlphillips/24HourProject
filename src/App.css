@@ -1,3 +1,12 @@
+body {
+  background-image: url('./assets/queen.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  
+}
+
+
 .App {
   text-align: center;
 }
