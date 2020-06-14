@@ -65,7 +65,7 @@ class Houses extends Component <HousesProps, HousesState> {
                     {house.name}
                   </Typography>
                   <Typography color="textSecondary" gutterBottom style={{color: '#ffffff'}}>
-                  {house.words}
+                  "{house.words}""
                   </Typography>
                   <Typography  color="textSecondary">
                     {}
@@ -73,7 +73,7 @@ class Houses extends Component <HousesProps, HousesState> {
                   <Typography variant="body2" component="p">
                     {`Reigns from: ${house.region}`}
                     <br/>
-                  {house.titles[0]}
+                  Holds title of: {house.titles[0]}
                   <br />
                   </Typography>
                 </CardContent>

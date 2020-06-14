@@ -1,15 +1,14 @@
 import React from 'react';
-import Characters from './components/Characters'
-import Houses from "./components/Houses"
-import Books from './components/Books'
 import './App.css';
-
+import Books from './components/Books'
+import Houses from './components/Houses'
+import Characters from './components/Characters'
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Houses />
-      <Characters/>
+      <Characters />
       <Books />
     </div>
   );
