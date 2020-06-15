@@ -5,12 +5,15 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles'
+import './Characters.css';
+import { white } from 'color-name';
 
 const cardStyles = {
   display: 'inline-block',
   margin: '50px',
-  width: '20%',
-  height: '20%'
+  width: '30%',
+  height: '20%',
+  color: '#bed0ed',
 }
 
 interface Character {
@@ -19,6 +22,7 @@ interface Character {
     born: Date,
     died: Date,
     aliases: string
+    
 }
 
 interface CharactersProps{
@@ -57,34 +61,34 @@ class Characters extends Component <CharactersProps, CharactersState>{
       }
     
     render() {
-        return(
+        return( 
             <div>
-                <h1>Characters</h1>
+                <h1 style={{color: '#bed0ed'}}>Characters</h1>
+                <h4 style={{color: '#bed0ed'}}>*WARNING: SPOILERS AHEAD*</h4>
                 {this.state.characters.map((character, index) => {
                   return (
-              <Card style={cardStyles}>
-                <CardContent >
-                  <Typography color="textSecondary" gutterBottom>
-                  {character.name && character.aliases ? `${character.name}, otherwise known as ${character.aliases[0] } ` : character.aliases}
-                  </Typography>
-                  <Typography variant="h5" component="h2">
-                  </Typography>
-                  <Typography  color="textSecondary">
-                    {}
-                  </Typography>
-                  <Typography variant="body2" component="p">
-                    {`Gender: ${character.gender}`}
-                    <br/>
-                  {character.born ? `Character Birthdate: ${character.born}` : `Character Birthdate: unknown`}
-                  <br />
-                  {character.died ? `Character Deathdate: ${character.died}` : `Character Birthdate: unknown`}
-                   
-               
-                    
-                   
-                  </Typography>
-                </CardContent>
-              </Card>
+                    <Card className ='bgphoto' style={cardStyles}>
+                      <CardContent >
+                        <Typography color="textSecondary" gutterBottom>
+                        
+                        </Typography>
+                        <Typography variant="h5" component="h2">
+                        {character.name && (character.aliases.length > 0 && character.aliases[0]) ? `${character.name}, otherwise known as ${character.aliases[0]} ` : 
+                            character.name ? character.name : character.aliases[0]
+                        }
+                        </Typography>
+                        <Typography  color="textSecondary">
+                        
+                        </Typography>
+                        <Typography variant="body2" component="p">
+                        {`Gender: ${character.gender}`}
+                          <br/>
+                        {character.born ? `Character Birthdate: ${character.born}` : `Character Birthdate: unknown`}
+                        <br />
+                        {character.died ? `Character Deathdate: ${character.died}` : `Character Deathdate: unknown`}
+                        </Typography>
+                      </CardContent>
+                    </Card>
             )
           })}
             </div>
