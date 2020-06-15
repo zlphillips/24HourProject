@@ -20,7 +20,7 @@ ul {
     border-top:black;
     border-left: black;
     border-right: black;
-    margin-left: 5%;
+    margin-left: 3%;
   }
   
   /* Change the link color to #111 (black) on hover */
@@ -30,6 +30,6 @@ ul {
 
   
 .doo{
-    max-width: 5%;
+    max-width: 7%;
     
   }
