@@ -6,6 +6,16 @@ h3{
     color: #ffffff;
 }
 .card {
+    
+    background-image: url('../assets/slate1.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     text-align: center;
-    background-image: radial-gradient(red 20%, black 60%);
+    color: white;
+    text-shadow: 1px 1px rgb(245, 28, 4);
+  }
+
+.card:hover{
+    box-shadow: 1px 1px 10px 10px firebrick;
 }

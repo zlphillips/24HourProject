@@ -55,6 +55,7 @@ class Houses extends Component <HousesProps, HousesState> {
         
         }).then((data) => {
            this.setState ({houses:data.flat()})
+           console.log ({houses:data.flat()})
         })
         .catch(function (error) {
 		      console.log(error);
@@ -86,9 +87,9 @@ class Houses extends Component <HousesProps, HousesState> {
                     {}
                   </Typography>
                   <Typography variant="body2" component="p">
-                    {`Reigns from: ${house.region}`}
+                    {`Region: ${house.region}`}
                     <br/>
-                  Holds title of: {house.titles[0]}
+                    Highest Title: {house.titles[0]}
                   <br />
                   </Typography>
                 </CardContent>

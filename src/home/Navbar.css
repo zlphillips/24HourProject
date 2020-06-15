@@ -21,6 +21,7 @@ ul {
     border-left: black;
     border-right: black;
     margin-left: 3%;
+    text-decoration: none;
   }
   
   /* Change the link color to #111 (black) on hover */
