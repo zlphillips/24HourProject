@@ -20,7 +20,7 @@ const Home = () => {
             <br></br>
             <h1>Ye who continue on, beware</h1>
             <h2>No seriously, tons of spoilers ahead.</h2>
-            <h3>If you go on from here you will never be able to un know it.</h3>
+            <h4>If you go on from here you will never be able to un know it.</h4>
             <p>OKAY FINE, go!!!</p>
         </div>
     )
