@@ -12,7 +12,7 @@ const cardStyles = {
     color: '#ffffff',
     display: 'inline-block',
     margin: '50px',
-    width: '25%',
+    width: '30%',
     height: '20%',
   }
 
