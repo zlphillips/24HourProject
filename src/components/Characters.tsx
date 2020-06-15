@@ -9,8 +9,8 @@ import { Theme, createStyles, makeStyles } from '@material-ui/core/styles'
 const cardStyles = {
   display: 'inline-block',
   margin: '50px',
-  width: '20%',
-  height: '20%'
+  width: '30%',
+  height: '20%',
 }
 
 interface Character {
@@ -62,29 +62,25 @@ class Characters extends Component <CharactersProps, CharactersState>{
                 <h1>Characters</h1>
                 {this.state.characters.map((character, index) => {
                   return (
-              <Card style={cardStyles}>
-                <CardContent >
-                  <Typography color="textSecondary" gutterBottom>
-                  {character.name && character.aliases ? `${character.name}, otherwise known as ${character.aliases[0] } ` : character.aliases}
-                  </Typography>
-                  <Typography variant="h5" component="h2">
-                  </Typography>
-                  <Typography  color="textSecondary">
-                    {}
-                  </Typography>
-                  <Typography variant="body2" component="p">
-                    {`Gender: ${character.gender}`}
-                    <br/>
-                  {character.born ? `Character Birthdate: ${character.born}` : `Character Birthdate: unknown`}
-                  <br />
-                  {character.died ? `Character Deathdate: ${character.died}` : `Character Birthdate: unknown`}
-                   
-               
-                    
-                   
-                  </Typography>
-                </CardContent>
-              </Card>
+                    <Card style={cardStyles}>
+                      <CardContent >
+                        <Typography color="textSecondary" gutterBottom>
+                        {character.name ? `${character.name}, otherwise known as ${character.aliases[0] } ` : character.aliases[0]}
+                        </Typography>
+                        <Typography variant="h5" component="h2">
+                        </Typography>
+                        <Typography  color="textSecondary">
+                          {}
+                        </Typography>
+                        <Typography variant="body2" component="p">
+                          {`Gender: ${character.gender}`}
+                          <br/>
+                        {character.born ? `Character Birthdate: ${character.born}` : `Character Birthdate: unknown`}
+                        <br />
+                        {character.died ? `Character Deathdate: ${character.died}` : `Character Birthdate: unknown`}
+                        </Typography>
+                      </CardContent>
+                    </Card>
             )
           })}
             </div>
