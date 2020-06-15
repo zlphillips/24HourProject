@@ -1,8 +1,26 @@
 @import "./index.css";
+
+
+@font-face {
+  font-family: "CustomFont";
+  src: url("assets//Game\ of\ Thrones.ttf");
+  
+  }
+
 body {
   background-image: url('./assets/queen.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  text-align: center;
+  color: white;
+  font-family: 'CustomFont', Arial, sans-serif;
+  font-weight:normal;
+  font-style:normal;
+  
+}
+
+.doo{
+  max-width: 5%;
   
 }

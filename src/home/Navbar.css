@@ -1,0 +1,35 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: black;
+    font-size: 150%;
+ 
+  }
+  
+  
+  li a {
+    color: black;
+    display: block;
+    padding: 8px;
+    width: 15%;
+    float: left;
+    top: 0%;
+    border-style: solid;
+    border-top:black;
+    border-left: black;
+    border-right: black;
+    margin-left: 5%;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  
+.doo{
+    max-width: 5%;
+    
+  }
