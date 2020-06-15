@@ -69,18 +69,12 @@ class Characters extends Component <CharactersProps, CharactersState>{
                   return (
                     <Card className ='bgphoto' style={cardStyles}>
                       <CardContent >
-                        <Typography color="textSecondary" gutterBottom>
-                        
-                        </Typography>
                         <Typography variant="h5" component="h2">
                         {character.name && (character.aliases.length > 0 && character.aliases[0]) ? `${character.name}, otherwise known as ${character.aliases[0]} ` : 
                             character.name ? character.name : character.aliases[0]
                         }
                         </Typography>
-                        <Typography  color="textSecondary">
-                        
-                        </Typography>
-                        <Typography variant="body2" component="p">
+                        <Typography >
                         {`Gender: ${character.gender}`}
                           <br/>
                         {character.born ? `Character Birthdate: ${character.born}` : `Character Birthdate: unknown`}
