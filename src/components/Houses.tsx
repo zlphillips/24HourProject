@@ -20,10 +20,7 @@ interface House {
     name: string,
     region: string,
     words: string,
-    founded: string,
     titles: string,
-    seats: string,
-    ancestralWeapons: string
 }
 interface HousesProps{
 }
@@ -39,12 +36,30 @@ class Houses extends Component <HousesProps, HousesState> {
        } 
    }
 
-     fetchHouses(){
-        fetch(`https://www.anapioficeandfire.com/api/houses?page=1&pageSize=50`)
-        .then((results) => results.json())
-        .then((results) => this.setState({
-            houses: results
-        }))
+      fetchHouses(){
+        Promise.all([
+        fetch(`https://www.anapioficeandfire.com/api/houses?page=1&pageSize=50`),
+        fetch(`https://www.anapioficeandfire.com/api/houses?page=2&pageSize=50`),
+        fetch(`https://www.anapioficeandfire.com/api/houses?page=3&pageSize=50`),
+        fetch(`https://www.anapioficeandfire.com/api/houses?page=4&pageSize=50`),
+        fetch(`https://www.anapioficeandfire.com/api/houses?page=5&pageSize=50`),
+        fetch(`https://www.anapioficeandfire.com/api/houses?page=6&pageSize=50`),
+        fetch(`https://www.anapioficeandfire.com/api/houses?page=7&pageSize=50`),
+        fetch(`https://www.anapioficeandfire.com/api/houses?page=8&pageSize=50`),
+        fetch(`https://www.anapioficeandfire.com/api/houses?page=9&pageSize=50`)
+      ])
+        .then(function (responses) {
+		    return responses.map(function (response) {
+          return response.json();
+		    });
+        }).then(function (data) {
+           console.log(data);
+        })//.then((data) => this.setState({
+          //houses: data
+     //}))
+        .catch(function (error) {
+		      console.log(error);
+	        });
 
     }
     componentDidMount() {
