@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container'
-// import 'fontsource-roboto';
 // import { render } from '@testing-library/react';
-
 //CARDS CODE
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-
+import borderBird from '../assets/centerBird.png'
 
 
 interface BookProps {
@@ -57,43 +54,57 @@ componentDidMount () {
 }
 render() {
     return(
-        <Card variant="outlined">
-            <CardContent>
-        <div>
-            <Typography color="textSecondary" gutterBottom>
-            <p>
-               Books
-            </p>
-            </Typography>
-            <Container fixed>
-            <ul
-            style={{listStyleType:"none"}}>
-                {this.state.books.map((book, index) =>{
-                    return(
-                        <div
-                        style={{display:"inline-block", border:"1px solid grey"}}>
-                            <li>
-                            <Typography variant="h5" component="h2">
-                                {book.name}
-                            </Typography>
-                            <br/>
-                            <Typography variant="h5" component="h2">
-                                {book.released.substring(0,10)}
-                            </Typography>
-                            <br/>
-                            <Typography variant="body2" component="p">
-                                ISBN: {book.isbn}
-                            </Typography>
-                            </li>
-                        </div>
-                )})}
-            </ul>
-            </Container>
+    <div>
+    {/* style={{
+        borderImage: `url(${borderBird})`,
+        backgroundSize:"cover",
+        height:"500px",
+        paddingTop:"150px",
+        backgroundPosition:"center"
+    }}> */}
+        <h1
+        style={{textAlign:"center", color:"white"}}>
+            Books
+        </h1>
+        {this.state.books.map((book, index) =>{
+            return(
+                <Card
+                style={{
+                    display:"inline-block",
+                    margin:"30px",
+                    width:"15%",
+                    height:"40%",
+                    alignContent:"flex-start",
+                    color:"#B51C17",
+                    textShadow:"5px 3px 4px white",
+                }}>
+                    {/* #F2D442 #1F77B2*/}
+                <CardContent>                                          
+                <div
+                style={{
+                    textAlign:"center",
+                    backgroundImage: `url(${borderBird})`,
+                    backgroundPosition: 'center',
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize:'160px 160px',
+                }}>
+                <Typography variant="h5" component="h2">
+                    {book.name}
+                </Typography>
+                <Typography variant="body1" component="p">
+                    Release Date:
+                    <br/>{book.released.substring(0,10)}
+                </Typography>
+                <Typography variant="body1" component="p">                           
+                    ISBN: {book.isbn}
+                </Typography>
+                </div>
+                </CardContent>   
+                </Card>
+            )})}
         </div>
-            </CardContent>
-            </Card>
     )
 }}
+
 {/* // use SPANS to design the objects
-// interface expects properties
-// fetch url - dig into w/ string concantination */}
+// interface expects properties*/}
