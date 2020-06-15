@@ -9,3 +9,11 @@
   font-style:normal;
  
 }
+.bgcolor{
+    background-color: rgb(0, 0, 0, 0.7);
+    padding: 1%;
+    width: 20%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}

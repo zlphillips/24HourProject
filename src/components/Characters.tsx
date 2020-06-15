@@ -19,8 +19,8 @@ const cardStyles = {
 interface Character {
     name: string,
     gender: string,
-    born: Date,
-    died: Date,
+    born: string,
+    died: string,
     aliases: string
     
 }
@@ -42,16 +42,33 @@ class Characters extends Component <CharactersProps, CharactersState>{
 
    }
 
-   
+   fetchResults(){
+    Promise.all([
+    fetch(`https://www.anapioficeandfire.com/api/characters/?page=1&pageSize=50`),
+    fetch(`https://www.anapioficeandfire.com/api/characters/?page=2&pageSize=50`),
+    fetch(`https://www.anapioficeandfire.com/api/characters/?page=3&pageSize=50`),
+    fetch(`https://www.anapioficeandfire.com/api/characters/?page=4&pageSize=50`),
+    fetch(`https://www.anapioficeandfire.com/api/characters/?page=5&pageSize=50`),
+    fetch(`https://www.anapioficeandfire.com/api/characters/?page=6&pageSize=50`),
+    fetch(`https://www.anapioficeandfire.com/api/characters/?page=7&pageSize=50`),
+    fetch(`https://www.anapioficeandfire.com/api/characters/?page=8&pageSize=50`),
+    fetch(`https://www.anapioficeandfire.com/api/characters/?page=9&pageSize=50`)
+    ])
+    .then(function (responses) {
+    return Promise.all(responses.map(function (response) {
+      return response.json();
+    }));
+    
+    }).then((data) => {
+       this.setState ({characters:data.flat()})
+    })
+    .catch(function (error) {
+      console.log(error);
+      });
+
+}
 
  
-     fetchResults(){
-        fetch("https://www.anapioficeandfire.com/api/characters/?page=1&pageSize=50")
-        .then((results) => results.json())
-        .then((results) => this.setState({
-            characters: results
-        }))
-    }
     
 
     componentDidMount() {
@@ -63,9 +80,12 @@ class Characters extends Component <CharactersProps, CharactersState>{
     render() {
         return( 
             <div>
-                <h1 style={{color: '#bed0ed'}}>Characters</h1>
+              <div className='bgcolor'>
+                <h1 style={{color: '#bed0ed'}}>Dead characters</h1>
                 <h4 style={{color: '#bed0ed'}}>*WARNING: SPOILERS AHEAD*</h4>
+                </div>
                 {this.state.characters.map((character, index) => {
+                  if(character.born && character.died){
                   return (
                     <Card className ='bgphoto' style={cardStyles}>
                       <CardContent >
@@ -77,14 +97,14 @@ class Characters extends Component <CharactersProps, CharactersState>{
                         <Typography >
                         {`Gender: ${character.gender}`}
                           <br/>
-                        {character.born ? `Character Birthdate: ${character.born}` : `Character Birthdate: unknown`}
+                        {character.born && character.died ? `Character Birthdate: ${character.born}` : `Character Birthdate: unknown`}
                         <br />
                         {character.died ? `Character Deathdate: ${character.died}` : `Character Deathdate: unknown`}
                         </Typography>
                       </CardContent>
                     </Card>
             )
-          })}
+          }})}
             </div>
             
         )
