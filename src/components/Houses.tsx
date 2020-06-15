@@ -13,7 +13,7 @@ const cardStyles = {
     display: 'inline-block',
     margin: '50px',
     width: '25%',
-    height: '20%'
+    height: '20%',
   }
 
 interface House {
@@ -69,7 +69,8 @@ class Houses extends Component <HousesProps, HousesState> {
     render() {
         return(
             <div>
-                <h1 style={{color: '#ffffff'}}>Houses</h1>
+                <h1 style={{color: '#ffffff'}}>Major Houses</h1>
+                <h3>from Game of Thrones</h3>
                 {this.state.houses.map((house, index) => {
                 if (house.words && house.titles[0]) {
                   return (
