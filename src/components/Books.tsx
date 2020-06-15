@@ -76,7 +76,7 @@ render() {
                     height:"40%",
                     alignContent:"flex-start",
                     color:"#B51C17",
-                    textShadow:"5px 2px 4px black",
+                    textShadow:"5px 3px 4px white",
                 }}>
                     {/* #F2D442 #1F77B2*/}
                 <CardContent>                                          
