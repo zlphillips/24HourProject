@@ -25,7 +25,7 @@ interface House {
 interface HousesProps{
 }
 interface HousesState{
-    houses: Array<House>
+    houses:  Array<House>
 }
 
 class Houses extends Component <HousesProps, HousesState> {
@@ -47,16 +47,15 @@ class Houses extends Component <HousesProps, HousesState> {
         fetch(`https://www.anapioficeandfire.com/api/houses?page=7&pageSize=50`),
         fetch(`https://www.anapioficeandfire.com/api/houses?page=8&pageSize=50`),
         fetch(`https://www.anapioficeandfire.com/api/houses?page=9&pageSize=50`)
-      ])
+        ])
         .then(function (responses) {
-		    return responses.map(function (response) {
+		    return Promise.all(responses.map(function (response) {
           return response.json();
-		    });
-        }).then(function (data) {
-           console.log(data);
-        })//.then((data) => this.setState({
-          //houses: data
-     //}))
+        }));
+        
+        }).then((data) => {
+           this.setState ({houses:data.flat()})
+        })
         .catch(function (error) {
 		      console.log(error);
 	        });
@@ -80,7 +79,7 @@ class Houses extends Component <HousesProps, HousesState> {
                     {house.name}
                   </Typography>
                   <Typography color="textSecondary" gutterBottom style={{color: '#ffffff'}}>
-                  "{house.words}""
+                  "{house.words}"
                   </Typography>
                   <Typography  color="textSecondary">
                     {}
